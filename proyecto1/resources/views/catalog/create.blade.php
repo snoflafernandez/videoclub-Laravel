@@ -13,7 +13,7 @@
          </div>
          <div class="card-body" style="padding:30px">
 
-            <form action="/foo/bar" method="POST">
+            <form action="#" method="POST">
                   {{csrf_field()}}
                <div class="form-group">
                   <label for="title"><strong>Título</strong></label>

@@ -29,8 +29,8 @@
 							<button type="button" class="btn btn-primary">Alquilar pelicula</button>
 
 						@endif
-						<button type="button" class="btn btn-warning">Editar película</button>
-							<button type="button" class="btn">Volver al listado</button>
+						<a type="button" class="btn btn-warning"  href="{{url('catalog/edit/'.$pelicula->id)}}">Editar película</a>
+							<a type="button" class="btn" href="{{url('/')}}">Volver al listado</a>
 					</p>
 				</div>
 

@@ -17,35 +17,20 @@
 
 Route::get('/','HomeController@getHome');
 
-Route::get('login',function()
-{
-	return view('auth.login');
+Route::group(['middleware'=>'auth'],function(){
+	Route::get('catalog/index','CatalogController@getIndex');
+	Route::get('catalog/show/{id}','Catalogcontroller@getShow');
+	Route::get('catalog/create','CatalogController@getCreate');
+	Route::get('catalog/edit/{id}','CatalogController@getEdit');
+	Route::post('catalog/create','Catalogcontroller@postCreate');
+	Route::put('catalog/edit/{id}','CatalogController@putEdit');
 });
-
-Route::get('logout',function()
-{
-	return 'Logout usuario';
-});
-
-Route::get('catalog/index','CatalogController@getIndex');
-
-Route::get('catalog/show/{id}','Catalogcontroller@getShow');
-
-Route::get('catalog/create','CatalogController@getCreate');
-
-Route::get('catalog/edit/{id}','CatalogController@getEdit');
+Auth::routes();
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
 //regla de expresion regular
 //->where('name','[a-zA-Z]+');
-
-//va con el archivo que contiene la vista /resources/views/home.php
-Route::get('/prueba',function()
-{
-	return view('home',array('nombre'=>'Juan'));
-});
-
-
 /*Route::get('/nosotros','PaginasController@nosotros');
 
 Route::get('/contacto','PaginasController@contacto');
@@ -57,3 +42,5 @@ Route::get('/test' , function(){
 Route::get('usuarios/{nombre}',function($nombre){
 	return $nombre;
 });*/
+
+
