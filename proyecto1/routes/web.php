@@ -10,11 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 Route::get('/','HomeController@getHome');
 
 Route::group(['middleware'=>'auth'],function(){
@@ -26,21 +21,4 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::put('catalog/edit/{id}','CatalogController@putEdit');
 });
 Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
-
-
-//regla de expresion regular
-//->where('name','[a-zA-Z]+');
-/*Route::get('/nosotros','PaginasController@nosotros');
-
-Route::get('/contacto','PaginasController@contacto');
-
-Route::get('/test' , function(){
-	return 'aprendiendo las rutas';
-});
-
-Route::get('usuarios/{nombre}',function($nombre){
-	return $nombre;
-});*/
-
-
+Route::get('/home', 'HomeController@index')->name('home');
